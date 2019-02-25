@@ -95,9 +95,12 @@ except ImportError:
                                  DateTimeField: ogr.OFTDateTime}
 
 try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+    from io import StringIO
+    except ImportError:
+        try:
+            from cStringIO import StringIO  
+        except ImportError:
+            from StringIO import StringIO
 
 DEFAULT_FIELD_NAME_LENGTH = 10
 
