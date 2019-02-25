@@ -96,11 +96,12 @@ except ImportError:
 
 try:
     from io import StringIO
+except ImportError:
+    try:
+        from cStringIO import StringIO  
     except ImportError:
-        try:
-            from cStringIO import StringIO  
-        except ImportError:
-            from StringIO import StringIO
+        from StringIO import StringIO
+
 
 DEFAULT_FIELD_NAME_LENGTH = 10
 
